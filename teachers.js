@@ -1,75 +1,57 @@
 const teachers = [
   {
     name: "valentine",
-    age: "24",
     class: "1",
     Subject: "maths",
-    gender: "m",
-    contact: "02045",
+    gender: "m"
   },
   {
     name: "Kojo",
-    age: "90",
     class: "1",
     Subject: "Science",
-    gender: "m",
-    contact: "02087",
+    gender: "m"
   },
   {
     name: "Ama",
-    age: "34",
     class: "2",
     Subject: "social",
-    gender: "F",
-    contact: "02009",
+    gender: "F"
   },
   {
     name: "Esi",
-    age: "23",
     class: "3",
     Subject: "english",
-    gender: "F",
-    contact: "02043",
+    gender: "F"
   },
   {
-    name: "Abene",
-    age: "30",
+    name: "Abene", 
     class: "4",
     Subject: "economics",
-    gender: "f",
-    contact: "02024",
+    gender: "f"
   },
   {
     name: "Kwama",
-    age: "28",
     class: "5",
     Subject: "biology",
-    gender: "m",
-    contact: "02012",
+    gender: "m"
   },
   {
     name: "Mary",
-    age: "21",
     class: "6",
     Subject: "management in living",
-    gender: "f",
-    contact: "02044",
+    gender: "f"
   },
   {
     name: "Osman",
-    age: "25",
     class: "S.H.S 1",
     Subject: "geography",
-    gender: "m",
-    contact: "02065",
+    gender: "m"
   },
   {
     name: "Abu",
-    age: "29",
     class: "S.H.S 2",
     Subject: "government",
-    gender: "m",
-    contact: "02087",
+    gender: "m"
   },
 ];
 

@@ -1,17 +1,49 @@
 const express = require("express");
-const teachersRoutes = require('./routes/teachersRoutes');
+const dotenv = require("dotenv");
+const morgan = require("morgan");
 const teachers = require("./teachers");
-const app = express()
+const app = express();
 
-const PORT = 4000
-app.use(express.json())
+dotenv.config();
+app.use(morgan("dev"));
+app.use(express.json());
 
-app.use('/api/v1/teachers',teachersRoutes)
+//get all teachers data
+app.get("/api/v3/people", (req, res) => {
+  res.json(teachers);
+});
+//single teacher
+app.get("/api/v3/people/:name", (req, res) => {
+  res.json(teachers.filter((teacher) => teacher.name === req.params.name));
+});
 
-// app.get("/api/v1", (req, res) => {
-//   res.json(teachers)
-// });
+//detete a teacher
+app.delete("/api/v3/people/:name", (req, res) => {
+  res.json(teachers.filter((teacher) => teacher.name !== req.params.name));
+});
 
-app.listen(PORT,()=>{
-    console.log(`Server started on port:${PORT}`)
-})
+//updating a teacher
+app.put("/api/v3/people/:name", (req, res) => {
+  const teacherFound = teachers.some(
+    (teacher) => teacher.name === req.params.name
+  );
+  teacherFound &&
+    teachers.forEach((teacher) => {
+      teacher.name === req.params.name, (teacher.class = req.body.class);
+    });
+  res.json(teacher);
+});
+
+app.post("/api/v3/people", (req, res) => {
+  const teacher = {
+    name: req.body.name,
+    class: req.body.class,
+    subject: req.body.subject,
+    gender: req.body.gender,
+  };
+  teachers.push(teacher);
+  res.json(teacher);
+});
+const PORT = process.env.PORT|| 7000;
+
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
